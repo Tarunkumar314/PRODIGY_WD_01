@@ -1,25 +1,20 @@
-// Change background color on scroll
-window.addEventListener('scroll', function() {
-  var header = document.querySelector('header');
-  var main = document.querySelector('main');
-  var scrollPosition = window.scrollY;
+const mobileMenu = document.getElementById('mobile-menu');
+const navbarMenu = document.querySelector('#navbar ul');
 
-  if (scrollPosition > 100) { // Adjust as needed
-    header.style.backgroundColor = '#555';
-  } else {
-    header.style.backgroundColor = '#333';
-  }
+mobileMenu.addEventListener('click', () => {
+  navbarMenu.classList.toggle('showing');
 });
 
-// Optionally, change color of menu items when scrolled or hovered
-var navLinks = document.querySelectorAll('#navbar a');
+// Change background color on scroll
+window.addEventListener('scroll', function() {
+  const header = document.querySelector('header');
+  const scrollPosition = window.scrollY;
 
-navLinks.forEach(function(navLink) {
-  navLink.addEventListener('mouseover', function() {
-    this.style.color = '#ff7f50'; // Change color on hover
-  });
-
-  navLink.addEventListener('mouseleave', function() {
-    this.style.color = '#fff'; // Revert color on mouse leave
-  });
+  if (scrollPosition > 50) { // Adjust as needed
+    header.style.backgroundColor = '#f8f8f8';
+    header.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)';
+  } else {
+    header.style.backgroundColor = 'transparent';
+    header.style.boxShadow = 'none';
+  }
 });
